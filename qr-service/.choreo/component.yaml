@@ -1,0 +1,12 @@
+schemaVersion: 1.2
+
+endpoints:
+  - name: qr-generation-service
+    displayName: QR Code Generation Service
+    service:
+      basePath: /
+      port: 9090
+    type: REST
+    networkVisibilities: 
+      - Public
+    schemaFilePath: openapi.yaml

@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: QR Service API
+  version: 1.0.0
+servers:
+  - url: http://localhost:9090
+paths:
+  /qr/{fileName}:
+    get:
+      summary: Get a QR code file
+      description: Returns the QR code file name (for demo purposes)
+      parameters:
+        - name: fileName
+          in: path
+          required: true
+          description: Name of the QR code file
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The QR code file name
+          content:
+            text/plain:
+              schema:
+                type: string
+
+  /health:
+    get:
+      summary: Health check endpoint
+      description: Returns the service health status
+      responses:
+        '200':
+          description: Service is up
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: UP
