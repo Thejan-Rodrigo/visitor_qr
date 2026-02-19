@@ -1,5 +1,9 @@
-import ballerina/io;
+import ballerina/http;
 
-public function main() {
-    io:println("Hello, World!");
+service / on new http:Listener(8080) {
+
+    // Serve stored QR images
+    resource function get qr/[string fileName]() returns string {
+        return fileName;
+    }
 }
